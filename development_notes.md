@@ -1,0 +1,1 @@
+`console.log('%c[BetterYTM] %c', 'color:purple', 'color:white');`

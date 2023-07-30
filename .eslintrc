@@ -1,0 +1,13 @@
+{
+    "root": true,
+    "extends": [
+        "@biased-eslint/eslint-config/ProperTSDoc",
+        "@biased-eslint/eslint-config/ProperTS"
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "ignorePatterns": [
+        "**/dist/*"
+    ]
+}

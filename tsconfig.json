@@ -1,0 +1,49 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "ES2015",
+        "lib": [
+            "es6",
+            "es2017",
+            "esnext.asynciterable",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "sourceMap": true,
+        "outDir": "./dist/src",
+        "strict": true,
+        "skipDefaultLibCheck": true,
+        "moduleResolution": "node",
+        "removeComments": false,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "skipLibCheck": true,
+        "baseUrl": ".",
+        "declaration": true
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "include": [
+        "./src/**/*.tsx",
+        "./src/**/*.ts",
+    ],
+    "ts-node": {
+        "files": true
+    },
+    "typeAcquisition": {
+        "include": [
+            "chrome"
+        ]
+    }
+}

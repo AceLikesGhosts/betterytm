@@ -1,0 +1,21 @@
+{
+  "name": "betterytm",
+  "version": "0.0.1",
+  "description": "An extension which adds more features to Youtube Music",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "rm -rf dist && npx tsc && node ./scripts/build.js"
+  },
+  "keywords": [],
+  "author": "AceLikesGhosts",
+  "license": "MIT",
+  "devDependencies": {
+    "@biased-ts/eslint-config": "^2.0.0",
+    "@types/chrome": "^0.0.242",
+    "@types/node": "^20.4.5",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
+    "eslint": "^8.46.0",
+    "typescript": "^5.1.6"
+  }
+}
