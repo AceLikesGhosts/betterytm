@@ -1,15 +1,22 @@
+name: es-check-version
+
 on:
-  push:
-  pull_request:
+  workflow_run:
+    workflows: ["tsc", "lint"]
+    branches: [master]
+    types:
+      - completed
+
 
 jobs:
-  tsc:
-    name: es-check-version
-    runs-on: ubuntu-latest
-    steps:
-    - name: es-check-action
-      uses: ali-kamalizade/es-check-action@1.0.2
-      with:
-        directory: 'dist/src'
-        ecmaVersion: 'es5'
-        files: '*.js'
+  es-check-version:
+      if: ${{ github.event.workflow_run.conclusion == 'success' }}
+      name: es-check-version
+      runs-on: ubuntu-latest
+      steps:
+          - name: es-check-action
+            uses: ali-kamalizade/es-check-action@1.0.2
+            with:
+                directory: 'dist/src'
+                ecmaVersion: 'es5'
+                files: '*.js'
