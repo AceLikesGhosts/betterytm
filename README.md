@@ -5,8 +5,8 @@
 > guaranteed to work. There are no settings, nor adjustability for the modified portions of the
 > Youtube Music website, nor content.
 
-BetterYTM is a simple [Chromium](https://chromium.org) extension which provides a better [Youtube Music](https://music.youtube.com) experience.
-At the moment, this is completely experimental and simply things [I](https://github.com/acelikesghosts) want.
+BetterYTM is a [Chromium](https://chromium.org) extension designed to enhance your experience on Youtube Music. 
+As of now, it is an experimental project, driven by [my](https://github.com/acelikesghosts) personal preferences.
 
 ### Features
 
@@ -31,7 +31,7 @@ npm run build
 4. Browse to the project directory where you cloned the repository and select the folder named `dist`. The extension should now be installed and active in your Chromium browser.
 
 ### Updating
-Updating your local version of the project is rather simple, and all you have to do is:
+Updating your local version of the project is a uncomplicated process. Follow these steps:
 
 1. Navigate to where it is installed and update the Git repo
 ```sh
