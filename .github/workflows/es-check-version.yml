@@ -1,0 +1,15 @@
+on:
+  push:
+  pull_request:
+
+jobs:
+  tsc:
+    name: es-check-version
+    runs-on: ubuntu-latest
+    steps:
+    - name: es-check-action
+      uses: ali-kamalizade/es-check-action@1.0.2
+      with:
+        directory: 'dist/src'
+        ecmaVersion: 'es5'
+        files: '*.js'
