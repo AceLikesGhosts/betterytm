@@ -10,14 +10,14 @@
         'color:white'
     );
 
-    //#region youtube's html player as an interface
+    // #region youtube's html player as an interface
     interface IHTMLPlayer {
         getVolume: () => number;
         setVolume: (volume: number) => void;
     }
-    //#endregion 
+    // #endregion 
 
-    //#region Better volume control
+    // #region Better volume control
     // from: https://greasyfork.org/en/scripts/397686-youtube-music-fix-volume-ratio/code
     // thank you Marco Pfeiffer <git@marco.zone> i love you
     const EXPONENT = 3;
@@ -34,7 +34,7 @@
             // To avoid this, I'll store the unmodified volume to return it when read here.
             // This mostly solves the issue, but the initial read has no stored value and the volume can also change though external influences.
             // To avoid ill effects, I check if the stored volume is somewhere in the same range as the calculated volume.
-            const storedOriginalVolume = storedOriginalVolumes.get(this);
+            const storedOriginalVolume = storedOriginalVolumes.get((this as object));
             const storedDeviation = Math.abs(storedOriginalVolume - calculatedOriginalVolume);
 
             const originalVolume = storedDeviation < 0.01 ? storedOriginalVolume : calculatedOriginalVolume;
@@ -42,7 +42,7 @@
         },
         set: function (originalVolume) {
             const lowVolume = originalVolume ** EXPONENT;
-            storedOriginalVolumes.set(this, originalVolume);
+            storedOriginalVolumes.set((this as object), originalVolume);
             // Inserted by BetterYTM - Not a part of Marco's source.
             console.log('%c[BetterYTM] %cSet volume to `' + lowVolume + '`', 'color:purple', 'color:white');
             // @ts-expect-error This is valid.
@@ -50,7 +50,7 @@
         }
     });
     // end of "borrowed" code
-    //#endregion
+    // #endregion
 
     // MoviePlayer / AudioPlayer
     const PLAYER = document.getElementById('movie_player')! as IHTMLPlayer & HTMLElement;
@@ -87,13 +87,13 @@
         }
 
         return SLIDER_SET_ATTRIBUTE.call(SLIDER_INPUT, key, value);
-    }
+    };
 
     // change events, whenever VOLUME_INPUT updates. Should work for both new and old browsers
     VOLUME_INPUT.addEventListener('input', (e) => inputUpdateVolume(Number((e as unknown as InputEvent).data)));
     VOLUME_INPUT.addEventListener('change', () => inputUpdateVolume(Number(VOLUME_INPUT.value)));
 
     // repeat button element
-    const REF_ELM = document.querySelector("#right-controls > div > tp-yt-paper-icon-button.repeat.style-scope.ytmusic-player-bar");
+    const REF_ELM = document.querySelector('#right-controls > div > tp-yt-paper-icon-button.repeat.style-scope.ytmusic-player-bar');
     REF_ELM?.insertAdjacentElement('beforebegin', VOLUME_INPUT);
 })();
