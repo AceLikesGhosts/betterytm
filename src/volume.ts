@@ -88,7 +88,7 @@
     // jank because slider change events are really fucked up.
     const SLIDER_SET_ATTRIBUTE = SLIDER_INPUT.setAttribute;
 
-    SLIDER_INPUT.setAttribute = function(key: string, value: string) {
+    SLIDER_INPUT.setAttribute = function (key: string, value: string) {
         if(key.toLowerCase() === 'value') {
             VOLUME_INPUT.value = value;
         }
@@ -101,6 +101,6 @@
     VOLUME_INPUT.addEventListener('change', () => inputUpdateVolume(Number(VOLUME_INPUT.value)));
 
     // repeat button element
-    const REF_ELM = document.querySelector('#right-controls > div > tp-yt-paper-icon-button.repeat.style-scope.ytmusic-player-bar');
-    REF_ELM?.insertAdjacentElement('beforebegin', VOLUME_INPUT);
+    document.querySelector('#right-controls > div > tp-yt-paper-icon-button.repeat.style-scope.ytmusic-player-bar')
+        ?.insertAdjacentElement('beforebegin', VOLUME_INPUT);
 })();
