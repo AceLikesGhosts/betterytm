@@ -85,7 +85,10 @@
     };
 
 
-    // jank because slider change events are really fucked up.
+    // This is a really bad solution, but it works.
+    // Intercept all calls to `setAttribute`, if it's a call which updates `value` (what the slider elm updates)
+    // then update it for our element as well. this is actually really fucked, and will cause issues in the feature
+    // TODO: find a better way
     const SLIDER_SET_ATTRIBUTE = SLIDER_INPUT.setAttribute;
 
     SLIDER_INPUT.setAttribute = function (key: string, value: string) {
