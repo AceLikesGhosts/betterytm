@@ -40,7 +40,10 @@
             const originalVolume = storedDeviation < 0.01 ? storedOriginalVolume : calculatedOriginalVolume;
             return originalVolume;
         },
-        set: function (originalVolume) {
+        /**
+         * @param {number} originalVolume - The original volume that was set, before modification.
+         */
+        set: function (originalVolume: number) {
             const lowVolume = originalVolume ** EXPONENT;
             storedOriginalVolumes.set((this as object), originalVolume);
             // Inserted by BetterYTM - Not a part of Marco's source.
@@ -68,6 +71,10 @@
     VOLUME_INPUT.value = SLIDER_INPUT.value;
 
     const inputUpdateVolume = (num: number) => {
+        if(typeof num !== 'number') {
+            throw new Error('Cannot set the volume `' + num + '` due to it not being a number.');
+        }
+
         if(num > Number(SLIDER_INPUT.ariaValueMax)) {
             throw new Error('Cannot set the volume to `' + num + '` because it exceeds the bounds that the audio player can play.');
         }
