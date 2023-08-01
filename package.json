@@ -4,7 +4,7 @@
   "description": "An extension which adds more features to Youtube Music",
   "main": "dist/src/index.js",
   "scripts": {
-    "build": "npm run prebuild && rm -rf dist && npx tsc && node ./scripts/build.js",
+    "build": "rm -rf dist && npx tsc && node ./scripts/build.js",
     "prebuild": "npx eslint ./src && npx alex"
   },
   "keywords": [],
