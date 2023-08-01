@@ -20,7 +20,7 @@
     // #region Better volume control
     // from: https://greasyfork.org/en/scripts/397686-youtube-music-fix-volume-ratio/code
     // thank you Marco Pfeiffer <git@marco.zone> i love you
-    const EXPONENT = 3;
+    const EXPONENT = 3 as const;
     const storedOriginalVolumes = new WeakMap();
 
     const { get, set } = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'volume')!;
