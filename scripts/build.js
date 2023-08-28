@@ -26,6 +26,10 @@ const manifest = {
     "name": pkg.name,
     "description": pkg.description,
     "version": pkg.version,
+    "permissions": [
+        "clipboardRead",
+        "clipboardWrite"
+    ],
     "content_scripts": [
         {
             "js": [
